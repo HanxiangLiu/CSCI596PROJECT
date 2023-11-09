@@ -24,10 +24,26 @@ aco = ACOAlgorithm(**aco_params)
 # Initialize plots for each algorithm
 fig, axes = initialize_plots()
 
+# Define labels for the legend of each subplot
+algorithm_names = ['PSO', 'GA', 'ACO']
+
+# Initialize empty scatter plots with labels for the legend
+scatter_plots = []
+for ax, name in zip(axes, algorithm_names):
+    scatter = ax.scatter([], [], [], color='none', label=name)  # Dummy scatter for legend
+    scatter_plots.append(scatter)
+
+# Create legends based on the initial (empty) scatter plots
+for ax in axes:
+    ax.legend(loc='upper right')
+
 # Lists to keep track of scatter plot artists for each algorithm
 scatter_plots_pso = []
 scatter_plots_ga = []
 scatter_plots_aco = []
+
+# Text objects to display the iteration number
+iteration_texts = [ax.text2D(0.05, 0.95, '', transform=ax.transAxes) for ax in axes]
 
 # Prepare the animation update function
 def update(frame):
@@ -54,6 +70,10 @@ def update(frame):
     scatter_plots_ga.append(update_plot(axes[1], ga_data, 'blue', 'GA'))
     scatter_plots_aco.append(update_plot(axes[2], aco_data, 'purple', 'ACO'))
 
+    # Update iteration number and algorithm name
+    for iter_text in iteration_texts:
+        iter_text.set_text(f'Iteration: {frame}')
+
     # Update the figure
     fig.canvas.draw()
     return fig,
@@ -61,8 +81,5 @@ def update(frame):
 # Initialize the animation
 ani = FuncAnimation(fig, update, frames=range(num_iterations), blit=False, interval=100, repeat=False)
 
-# Show the plot with the legend
-for ax in axes:
-    ax.legend()
-
+# Show the plot
 plt.show()
