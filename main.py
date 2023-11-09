@@ -26,6 +26,12 @@ aco = ACOAlgorithm(**aco_params)
 # Initialize plot
 fig, ax = initialize_plot()
 
+# Set the view angle
+ax.view_init(elev=34, azim=134)
+
+# List to keep track of scatter plot artists for clearing them in each update
+scatter_plots = []
+
 # Prepare the animation update function
 def update(frame):
     # Update algorithms
@@ -33,19 +39,20 @@ def update(frame):
     ga.update()
     aco.update()
 
-    # Clear the previous scatter plot
-    while len(ax.collections) > 0:
-        ax.collections[0].remove()
+    # Clear the previous scatter plots
+    for scat in scatter_plots:
+        scat.remove()
+    scatter_plots.clear()
 
     # Update plots for each algorithm
     pso_data = pso.get_positions()
     ga_data = ga.get_positions()
     aco_data = aco.get_positions()
 
-    # Ensure labels are set for legend
-    update_plot(ax, pso_data, 'red', 'PSO')
-    update_plot(ax, ga_data, 'blue', 'GA')
-    update_plot(ax, aco_data, 'green', 'ACO')
+    # Plot and store the scatter plot artists
+    scatter_plots.append(update_plot(ax, pso_data, 'red', 'PSO'))
+    scatter_plots.append(update_plot(ax, ga_data, 'blue', 'GA'))
+    scatter_plots.append(update_plot(ax, aco_data, 'purple', 'ACO'))
 
     # Update the figure
     fig.canvas.draw()
@@ -54,10 +61,6 @@ def update(frame):
 # Initialize the animation
 ani = FuncAnimation(fig, update, frames=range(num_iterations), blit=False, interval=100, repeat=False)
 
-# Make sure to call plt.legend() after the plots have been created
-# You can force a draw to make sure all artists are created
-fig.canvas.draw()
+# Show the plot with the legend
 plt.legend()
-
-# Show the plot
 plt.show()
