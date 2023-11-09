@@ -1,7 +1,7 @@
 # ga_algorithm.py
 import numpy as np
-from algorithm_interface import OptimizationAlgorithm
-from objective_function import schwefel_function
+from .algorithm_interface import OptimizationAlgorithm
+from functions.objective_function import schwefel_function
 
 class GAAlgorithm(OptimizationAlgorithm):
     def __init__(self, population_size, search_space):

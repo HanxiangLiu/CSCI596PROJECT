@@ -1,14 +1,12 @@
 # main.py
-import numpy as np
 import matplotlib.pyplot as plt
-from algorithm_interface import OptimizationAlgorithm
-from plotting import initialize_plots, update_plot
 from matplotlib.animation import FuncAnimation
+from plotting import initialize_plots, update_plot
 
 # Import the algorithm classes
-from pso_algorithm import PSOAlgorithm
-from ga_algorithm import GAAlgorithm
-from aco_algorithm import ACOAlgorithm
+from algorithms.pso_algorithm import PSOAlgorithm
+from algorithms.ga_algorithm import GAAlgorithm
+from algorithms.aco_algorithm import ACOAlgorithm
 
 # Parameters for algorithm initialization (these should be defined according to your problem and algorithm requirements)
 num_particles = 50  # This is an example, adjust accordingly

@@ -2,8 +2,9 @@
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
-from objective_function import schwefel_function
 import numpy as np
+
+from functions.objective_function import schwefel_function
 
 def initialize_plots():
     fig = plt.figure(figsize=(18, 6))

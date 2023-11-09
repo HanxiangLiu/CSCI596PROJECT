@@ -1,7 +1,7 @@
 # aco_algorithm.py
 import numpy as np
-from algorithm_interface import OptimizationAlgorithm
-from objective_function import schwefel_function
+from .algorithm_interface import OptimizationAlgorithm
+from functions.objective_function import schwefel_function
 
 class ACOAlgorithm(OptimizationAlgorithm):
     def __init__(self, num_ants, search_space, alpha, decay):
