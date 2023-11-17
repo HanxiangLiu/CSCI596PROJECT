@@ -84,6 +84,7 @@ def update(frame):
 
     # Update the figure
     fig.canvas.draw()
+    fig.savefig(f'result/img/iteration_{frame}.png', dpi=200)
     return fig,
 
 # Initialize the animation
