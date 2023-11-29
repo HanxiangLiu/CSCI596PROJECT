@@ -37,7 +37,7 @@ for ax, name in zip(axes, algorithm_names):
     scatter_plots.append(scatter)
 
 # Create legends based on the initial (empty) scatter plots
-for ax in axes[:4]:  # Only for the first four plots
+for ax in axes:
     ax.legend(loc='upper right')
 
 # Lists to keep track of scatter plot artists for each algorithm
