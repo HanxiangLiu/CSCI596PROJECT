@@ -2,7 +2,7 @@
 
 ## Project Description
 
-This Python project visualizes the behavior of various optimization algorithms on the Schwefel Function, a well-known complex mathematical function used in optimization and computational intelligence research. The project compares the performance and search patterns of four distinct algorithms: Particle Swarm Optimization (PSO), Genetic Algorithm (GA), Ant Colony Optimization (ACO), and Artificial Bee Colony (ABC).
+This Python project visualizes the behavior of various optimization algorithms on the Schwefel Function, a well-known complex mathematical function used in optimization and computational intelligence research. The project compares the performance and search patterns of four distinct algorithms: [Particle Swarm Optimization (PSO)](https://github.com/HanxiangLiu/CSCI596PROJECT#particle-swarm-optimization-pso), [Genetic Algorithm (GA)](https://github.com/HanxiangLiu/CSCI596PROJECT#genetic-algorithm-ga), [Ant Colony Optimization (ACO)](https://github.com/HanxiangLiu/CSCI596PROJECT#ant-colony-optimization-aco), and [Artificial Bee Colony (ABC)](https://github.com/HanxiangLiu/CSCI596PROJECT#artificial-bee-colony-abc).
 
 ![result](result/wdnmd.gif)
 
